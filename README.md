@@ -4,7 +4,7 @@ Develop an automated system for analyzing and processing global mobility applica
 ## Project Preview
 
 <p align="center">
-  <img src="https://backend.krishnaik.in/media/project_banners/-global-mobility-application-7943e514e396aba1e30f744340c60b0b_1.jpg"
+  <img src="https://d14omfvx1qlabb.cloudfront.net/krishnaik.in/media/project_banners/17.png"
        alt="Project Preview"
        width="600" />
 </p>
@@ -12,7 +12,7 @@ Develop an automated system for analyzing and processing global mobility applica
 ## System Architecture
 
 <p align="center">
-  <img src="https://backend.krishnaik.in/media/project_architecture_diagrams/architecture_diagram_2.jpg"
+  <img src="https://d14omfvx1qlabb.cloudfront.net/krishnaik.in/media/project_architecture_diagrams/architecture_diagram_2.jpg"
        alt="System Architecture"
        width="600" />
 </p>
