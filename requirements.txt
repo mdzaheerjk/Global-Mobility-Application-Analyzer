@@ -1,0 +1,19 @@
+pandas
+numpy
+scikit-learn
+imbalanced-learn
+evidently
+neuro-mf
+fastapi
+uvicorn
+jinja2
+python-multipart
+boto3
+mypy-boto3-s3
+pymongo
+certifi
+PyYAML
+dill
+xgboost
+catboost
+-e .

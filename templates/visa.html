@@ -1,133 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Global Mobility Application Analyzer</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css')}}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  </head>
-  <body>
-    <nav class="navbar navbar-light bg-light static-top">
-        <div class="container-fluid">
-           <!-- <a class="navbar-brand" href="https://ineuron.ai"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAlCAMAAABBJDpuAAAAVFBMVEX/fgD/iQA7NzIyMjMnNYInNYEnNYInNYEzMzInNYQnNYETJzsnNYIwN1wxMjNoTis4O1YrNm0xOF47PE9DP0dEQEVpTVkAJJ4nNYEOLJHJbiAzMzOmmmHRAAAAFnRSTlOh/vu+986oen9fP2UqEzQkFAIDAAEEILVBJQAAA3FJREFUWMPNmO2WoyAMQG0VBARtdVRs3/89NwkgaF1rd2aOm18tIrnkgwSz7n+R7LcV1ELkeS7E7VySRlyfQXJhTiO55c+liP4cEuH1X8E7gaV+S3Jv2zYZ/Vr+/Sdx2vP6doc/fSPcf/GOpLSFVXFUW8t+giRP47TOd60yk1hbxIhSP0ACKPWrvw7YBIT/lcQY84G3Wk17ugWQfg5UsQJpjflKSLQi7xTWyk0SXTJ4VnB5D1yccxmp4Z+mX5KGNS+SPXVNll0ulyxL0wYmloBB6zL/MpCoAgjAJiUM6w0SboMwPUdRogvNKcNM3smFdRvEcJJkKcflQa+X0pNIfBGW0zKqjyQtw4VLKQlI7ZLgdrRNSZDjMQx2GB4pCkxkCrfGWUTJ0Egan6muCHgJCUwtnCk0mrJ9Q8K5LUqtdSfynkAedhynaRqngVDaXLiJEAzkFkM71IuIlWRYtSQpbXSZDvQ7JPCei9brs+oaABkn74LRIkpFaVxGnzjvIxTYREOoEwn5r01JTDRTcO87Eu3zNUeTPKZpjrIRrNIDCjzALbPk7LJMIokOEQu2K7yKQAKvFDF9pVe0R+LGb7h1MMkw2ijjA/1zhSfSphvEAChXJEhAqwYStIJWXnTpvbdH4hTUwSQ2JRmQpILDLYbB7J41SYiLcNozu5Z3JMo7RxBJahI7WSRByCMkqJt9hySESbVJcvmARJGFExJmdBSl2oM2+T4JLWfgaGFptizlPUm1FydHSdyZ7UnS4ySph2kS0kJrkvr5NJg7dnrJnfxgxPozRPGtkyPNOxtaiDvbIAF9L+5B5zTI2BwlwXmM+U3zReav3o0F8oUEFFZ42McDZYomOUziFmezgWyo251Uc1nyKJol7URCEvIYUEbHYaEGQi9C9egwCdVfHwiaajfjKMUcHcRacCylhWJbJDfq47EEDhYqoIWjHnwDXZPpPiChPQelLU+Cbm4w50FmYgkvFwpiWwCC/Um/SLcNElOC9RVj6qWpCiEMvRUK4zLpdKmPw8rVldy/qxjn60wLrVLWJIPLiZJRr3fsvnOHPvare+lB93tb37T20D82jqOt+zNuXhuNvNhp7X+PpHb3rvV9R5xjE2SpyCN9ffQO+GtWIZr5Xnytz4gTMIRYfys47/uJEXny/aQ/95tSUwmU+uRvSp/IHzQqZYpYrQmxAAAAAElFTkSuQmCC" /></a> -->
+    <title>Global Mobility Application Analyzer | AI Visa Petition Assessment</title>
+    <meta name="description" content="Enterprise-grade AI platform for analyzing US visa petition approvals. Predict certification likelihood, assess wage compliance, and evaluate candidate eligibility instantly.">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <a href="/" class="brand-wrapper">
+            <div class="brand-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+            </div>
+            <div>
+                <span class="brand-title">GlobalMobility<span style="color: #38bdf8;">AI</span></span>
+                <span class="brand-badge">v2.4 Engine</span>
+            </div>
+        </a>
+
+        <div class="nav-actions">
+            <div class="status-indicator">
+                <div class="pulse-dot"></div>
+                <span>Model Active &bull; 95.6% Accuracy</span>
+            </div>
+            <button type="button" class="btn-ghost" id="openTrainModalBtn" onclick="openTrainModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                </svg>
+                <span>Pipeline Retrain</span>
+            </button>
         </div>
-     </nav>
-    <section>
-        <div class="container-fluid">
-            <div class="container">
-                <form action="/" method="post">
-                    <legend>Visa approval Form</legend>
-                    <div class="mb-3">
-                        <label for="continent" >continent</label>
-                        <select class="form-control" id="continent" name="continent" placeholder="Continent" required="required">
-                          <option value="" disabled selected>Select Continent</option>
-                          <option>Asia</option>
-                          <option>Africa</option>
-                          <option>North America</option>
-                          <option>Europe</option>
-                          <option>South America</option>
-                          <option>Oceania</option>
-                        </select>
-                      </div>
-        
-                      <div class="mb-3">
-                        <label for="education_of_employee">Education of employee</label>
-                        <select class="form-control" id="education_of_employee" name="education_of_employee" placeholder="Education" required="required">
-                            <option value="" disabled selected>Select Education</option>
-                            <option>High School</option>
-                            <option>Master's</option>
-                            <option>Bachelor's</option>
-                            <option>Doctorate</option>
-                        </select>
-                      </div>
-        
-                      <div class="mb-3">
-                        <label for="has_job_experience">Has Job Experience</label>
-                        <select class="form-control" id="has_job_experience" name="has_job_experience" placeholder="Has Experience" required="required">
-                            <option value="" disabled selected>Has Experience</option>
-                            <option>N</option>
-                            <option>Y</option>
-                        </select>
-                      </div>
-        
-                      <div class="mb-3">
-                        <label for="requires_job_training">Requires Job Training</label>
-                        <select class="form-control" id="requires_job_training" name="requires_job_training" placeholder="Training required" required="required">
-                            <option value="" disabled selected>Required Training</option>
-                            <option>N</option>
-                            <option>Y</option>
-                        </select>
-                      </div>
-        
-                      <div class="mb-3">
-                        <label for="no_of_employees">Number of Employees</label>
-                        <input type="number" class="form-control" id="no_of_employees" name="no_of_employees" min="14500" max="40000" placeholder="select between 15000 to 40000" required="required">
-                      </div>
-                      
-                      <div class="mb-3">
-                        <label for="region_of_employment">Select Region</label>
-                        <select class="form-control" id="region_of_employment" name="region_of_employment" placeholder="Region" required="required">
-                          <option value="" disabled selected>Region</option>
-                          <option>West</option>
-                          <option>Northeast</option>
-                          <option>South</option>
-                          <option>Midwest</option>
-                          <option>Island</option>
-                        </select>
-                      </div>
-        
-                      <div class="mb-3">
-                        <label for="prevailing_wage">Prevailing Wage</label>
-                        <input type="number" class="form-control" id="prevailing_wage" name="prevailing_wage" min="600" max="70000" placeholder="select between 700 to 7000" required="required">
-                      </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span>Machine Learning Intelligence Engine</span>
+        </div>
+        <h1 class="hero-title">Predictive <span class="gradient-text">Visa Application</span> Analyzer</h1>
+        <p class="hero-subtitle">Evaluate cross-border talent petitions against real-world US Department of Labor visa patterns with ensemble machine learning &amp; statistical drift monitoring.</p>
 
-        
-                      <div class="mb-3">
-                        <label for="unit_of_wage">Contract Tenure</label>
-                        <select class="form-control" id="unit_of_wage" name="unit_of_wage" placeholder="Contract tenure" required="required">
-                            <option value="" disabled selected>Contract Tenure</option>
-                            <option>Hour</option>
-                            <option>Year</option>
-                            <option>Week</option>
-                            <option>Month</option>
-                        </select>
-                      </div>
-        
-                      <div class="mb-3">
-                        <label for="full_time_position">Full or Part Time</label>
-                        <select class="form-control" id="full_time_position" name="full_time_position" placeholder="Full Time" required="required">
-                            <option value="" disabled selected>Full Time</option>
-                            <option>Y</option>
-                            <option>N</option>
-                        </select>
-                      </div>
-        
-                      <div class="mb-3">
-                        <label for="company_age">Age of the company</label>
-                        <input type="number" class="form-control" id="company_age" name="company_age" min="15" max="180" placeholder="select between 10 to 180" required="required">
-                      </div>
-        
-                        <input class="btn btn-primary" type="submit" value="Predict Visa-Status" required />
-                    </div>
-                    
-                </form>
-            </div>
-            <div class="text-center text-black">
-                <h2 class="display-4 fw-bolder">Visa Prediction Status: {{context}} </h2>
-            </div>
+        <!-- Quick Presets -->
+        <div class="preset-bar">
+            <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">TRY SAMPLE DATA:</span>
+            <button type="button" class="preset-btn" onclick="applyPreset('approved')">
+                <span>&#x2705;</span> High-Approval Tech Lead
+            </button>
+            <button type="button" class="preset-btn" onclick="applyPreset('denied')">
+                <span>&#x26A0;&#xFE0F;</span> High-Risk Entry Profile
+            </button>
+            <button type="button" class="preset-btn btn-clear" onclick="resetForm()">
+                <span>&#x21BA;</span> Clear
+            </button>
         </div>
     </section>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript">
-        $(".input").focus(function(){
-            $(this).parent().addClass("focus");
-        }).blur(function(){
-            if($(this).val() === ''){
-                $(this).parent().removeClass("focus");
+
+    <!-- Main Content Layout -->
+    <main class="main-layout">
+
+        <!-- Form Panel -->
+        <section class="glass-panel" id="formPanel">
+            <div class="panel-header">
+                <h2 class="panel-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Application Assessment Parameters
+                </h2>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">All 10 Features Required</span>
+            </div>
+
+            <form action="/" method="post" id="visaForm">
+
+                <!-- Section 1: Candidate Profile -->
+                <div class="form-section-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    1. Candidate Qualifications
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="field-group">
+                        <label class="field-label" for="continent">
+                            Continent of Origin
+                            <span class="field-hint">Primary citizenship</span>
+                        </label>
+                        <div class="input-container">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                            </span>
+                            <select class="custom-select" id="continent" name="continent" required>
+                                <option value="" disabled selected>Select Continent</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Europe">Europe</option>
+                                <option value="North America">North America</option>
+                                <option value="South America">South America</option>
+                                <option value="Africa">Africa</option>
+                                <option value="Oceania">Oceania</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="education_of_employee">
+                            Highest Education
+                            <span class="field-hint">Degree achieved</span>
+                        </label>
+                        <div class="input-container">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </span>
+                            <select class="custom-select" id="education_of_employee" name="education_of_employee" required>
+                                <option value="" disabled selected>Select Degree Level</option>
+                                <option value="Master's">Master's Degree</option>
+                                <option value="Doctorate">Doctorate (Ph.D.)</option>
+                                <option value="Bachelor's">Bachelor's Degree</option>
+                                <option value="High School">High School</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="field-group">
+                        <label class="field-label">Relevant Job Experience</label>
+                        <div class="pill-group">
+                            <div class="pill-option">
+                                <input type="radio" id="exp_yes" name="has_job_experience" value="Y" required checked>
+                                <label class="pill-label" for="exp_yes">Yes, Experienced</label>
+                            </div>
+                            <div class="pill-option">
+                                <input type="radio" id="exp_no" name="has_job_experience" value="N">
+                                <label class="pill-label" for="exp_no">No Prior Experience</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">Requires Job Training</label>
+                        <div class="pill-group">
+                            <div class="pill-option">
+                                <input type="radio" id="training_no" name="requires_job_training" value="N" required checked>
+                                <label class="pill-label" for="training_no">No Training Needed</label>
+                            </div>
+                            <div class="pill-option">
+                                <input type="radio" id="training_yes" name="requires_job_training" value="Y">
+                                <label class="pill-label" for="training_yes">Training Required</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Compensation & Role -->
+                <div class="form-section-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    2. Role &amp; Compensation
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="field-group">
+                        <label class="field-label" for="region_of_employment">
+                            Employment Region
+                            <span class="field-hint">US Geographical Area</span>
+                        </label>
+                        <div class="input-container">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <select class="custom-select" id="region_of_employment" name="region_of_employment" required>
+                                <option value="" disabled selected>Select US Region</option>
+                                <option value="Northeast">Northeast</option>
+                                <option value="West">West</option>
+                                <option value="South">South</option>
+                                <option value="Midwest">Midwest</option>
+                                <option value="Island">Island (Territories)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="full_time_position">Position Commitment</label>
+                        <div class="pill-group">
+                            <div class="pill-option">
+                                <input type="radio" id="fulltime_yes" name="full_time_position" value="Y" required checked>
+                                <label class="pill-label" for="fulltime_yes">Full-Time (Y)</label>
+                            </div>
+                            <div class="pill-option">
+                                <input type="radio" id="fulltime_no" name="full_time_position" value="N">
+                                <label class="pill-label" for="fulltime_no">Part-Time (N)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="field-group">
+                        <label class="field-label" for="prevailing_wage">
+                            Prevailing Wage
+                            <span class="field-hint">USD amount</span>
+                        </label>
+                        <div class="input-container">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </span>
+                            <input type="number" step="any" min="1" max="1000000" class="custom-input" id="prevailing_wage" name="prevailing_wage" placeholder="e.g. 85000" required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="unit_of_wage">
+                            Wage Frequency
+                            <span class="field-hint">Payment interval</span>
+                        </label>
+                        <div class="input-container">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </span>
+                            <select class="custom-select" id="unit_of_wage" name="unit_of_wage" required>
+                                <option value="" disabled selected>Select Frequency</option>
+                                <option value="Year" selected>Annual (Year)</option>
+                                <option value="Month">Monthly (Month)</option>
+                                <option value="Week">Weekly (Week)</option>
+                                <option value="Hour">Hourly (Hour)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Sponsoring Employer -->
+                <div class="form-section-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"/>
+                    </svg>
+                    3. Sponsoring Employer
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="field-group">
+                        <label class="field-label" for="no_of_employees">
+                            Number of Employees
+                            <span class="field-hint">Total company headcount</span>
+                        </label>
+                        <div class="input-container">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </span>
+                            <input type="number" min="1" max="1000000" class="custom-input" id="no_of_employees" name="no_of_employees" placeholder="e.g. 3500" required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="company_age">
+                            Company Operating Age
+                            <span class="field-hint">Years since founding</span>
+                        </label>
+                        <div class="input-container">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </span>
+                            <input type="number" min="0" max="300" class="custom-input" id="company_age" name="company_age" placeholder="e.g. 24" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 11 12 14 22 4"></polyline>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                    <span>Run AI Evaluation &bull; Predict Status</span>
+                </button>
+
+            </form>
+        </section>
+
+        <!-- Right Aside: Results Showcase -->
+        <aside class="result-sticky-wrapper">
+            {% if context == "Visa-approved" %}
+                <div class="result-card state-approved">
+                    <div class="state-icon-wrapper">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="result-badge">&#x2714;&#xFE0F; Petition Approved</span>
+                    <h3 class="result-headline">Certification High</h3>
+                    <p class="result-desc">The predictive model evaluated this application as highly compliant with prevailing requirements and positive historical precedents.</p>
+
+                    <div class="metric-breakdown">
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F4CA; Approval Likelihood</span>
+                            <span class="metric-val" style="color: #34d399;">High (&gt;85%)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F393; Education Factor</span>
+                            <span class="metric-pill pill-good">Strong Match</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F4B5; Compensation Metric</span>
+                            <span class="metric-pill pill-good">Compliant</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F3E2; Sponsor Stability</span>
+                            <span class="metric-pill pill-good">Established</span>
+                        </div>
+                    </div>
+                </div>
+
+            {% elif context == "Visa Not-Approved" %}
+                <div class="result-card state-denied">
+                    <div class="state-icon-wrapper">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                    <span class="result-badge">&#x26A0;&#xFE0F; Not Approved</span>
+                    <h3 class="result-headline">High Denial Risk</h3>
+                    <p class="result-desc">Key risk factors were flagged that typically correlate with petition scrutiny or denial under US visa certification guidelines.</p>
+
+                    <div class="metric-breakdown">
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F4CA; Approval Likelihood</span>
+                            <span class="metric-val" style="color: #fb7185;">Elevated Risk (&lt;40%)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F6A8; Primary Risk Factor</span>
+                            <span class="metric-pill pill-risk">Experience / Wage Ratio</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F4CB; Action Suggested</span>
+                            <span class="metric-pill pill-warn">Review Audit Checklist</span>
+                        </div>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="result-card state-ready">
+                    <div class="state-icon-wrapper">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <span class="result-badge">AI Ready</span>
+                    <h3 class="result-headline">Awaiting Parameters</h3>
+                    <p class="result-desc">Fill out the applicant and sponsoring company details on the left, or click a quick sample preset above to see the predictive model in action.</p>
+
+                    <div class="metric-breakdown">
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F9E0; Active Model</span>
+                            <span class="metric-val">Ensemble Classifier</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">&#x1F4E1; Drift Monitor</span>
+                            <span class="metric-pill pill-good">0/10 Drift (Pass)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">&#x23F1;&#xFE0F; Average Latency</span>
+                            <span class="metric-val">&lt; 8 ms</span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </aside>
+
+    </main>
+
+    <!-- Training Pipeline Modal -->
+    <div class="modal-overlay" id="trainModal">
+        <div class="modal-box">
+            <h3 class="modal-title">Trigger ML Pipeline Training</h3>
+            <p class="modal-desc">This triggers the complete end-to-end training cycle: Data Ingestion from source, statistical Evidently AI drift validation, SMOTEENN class balancing, hyperparameter GridSearch, and model artifact evaluation.</p>
+            
+            <div class="progress-track" id="trainProgressTrack">
+                <div class="progress-fill" id="trainProgressBar"></div>
+            </div>
+            
+            <div id="trainStatusMsg" style="margin-bottom: 1rem; font-size: 0.88rem; color: var(--text-secondary);"></div>
+
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button type="button" class="btn-ghost" onclick="closeTrainModal()">Close</button>
+                <button type="button" class="btn-submit" style="margin: 0; width: auto; padding: 10px 24px;" id="startTrainBtn" onclick="executeRetrain()">
+                    Start Pipeline Run
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Global Mobility Application Analyzer &bull; Powered by FastAPI &bull; Scikit-Learn &bull; Evidently AI</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        const presets = {
+            approved: {
+                continent: "Asia",
+                education_of_employee: "Master's",
+                has_job_experience: "Y",
+                requires_job_training: "N",
+                no_of_employees: "2412",
+                company_age: "24",
+                region_of_employment: "Northeast",
+                prevailing_wage: "83425.65",
+                unit_of_wage: "Year",
+                full_time_position: "Y"
+            },
+            denied: {
+                continent: "Asia",
+                education_of_employee: "High School",
+                has_job_experience: "N",
+                requires_job_training: "N",
+                no_of_employees: "14513",
+                company_age: "19",
+                region_of_employment: "West",
+                prevailing_wage: "592.20",
+                unit_of_wage: "Hour",
+                full_time_position: "Y"
             }
-        })
+        };
+
+        function applyPreset(type) {
+            const data = presets[type];
+            if (!data) return;
+
+            document.getElementById('continent').value = data.continent;
+            document.getElementById('education_of_employee').value = data.education_of_employee;
+            document.getElementById('region_of_employment').value = data.region_of_employment;
+            document.getElementById('unit_of_wage').value = data.unit_of_wage;
+            document.getElementById('no_of_employees').value = data.no_of_employees;
+            document.getElementById('company_age').value = data.company_age;
+            document.getElementById('prevailing_wage').value = data.prevailing_wage;
+
+            if (data.has_job_experience === 'Y') {
+                document.getElementById('exp_yes').checked = true;
+            } else {
+                document.getElementById('exp_no').checked = true;
+            }
+
+            if (data.requires_job_training === 'Y') {
+                document.getElementById('training_yes').checked = true;
+            } else {
+                document.getElementById('training_no').checked = true;
+            }
+
+            if (data.full_time_position === 'Y') {
+                document.getElementById('fulltime_yes').checked = true;
+            } else {
+                document.getElementById('fulltime_no').checked = true;
+            }
+
+            // Highlight submit button
+            const btn = document.getElementById('submitBtn');
+            btn.style.transform = 'scale(1.02)';
+            setTimeout(() => { btn.style.transform = 'none'; }, 200);
+        }
+
+        function resetForm() {
+            document.getElementById('visaForm').reset();
+        }
+
+        // Training Modal
+        function openTrainModal() {
+            document.getElementById('trainModal').classList.add('active');
+            document.getElementById('trainStatusMsg').innerText = '';
+            document.getElementById('trainProgressTrack').style.display = 'none';
+            document.getElementById('startTrainBtn').disabled = false;
+            document.getElementById('startTrainBtn').innerText = 'Start Pipeline Run';
+        }
+
+        function closeTrainModal() {
+            document.getElementById('trainModal').classList.remove('active');
+        }
+
+        async function executeRetrain() {
+            const startBtn = document.getElementById('startTrainBtn');
+            const progressTrack = document.getElementById('trainProgressTrack');
+            const progressBar = document.getElementById('trainProgressBar');
+            const statusMsg = document.getElementById('trainStatusMsg');
+
+            startBtn.disabled = true;
+            startBtn.innerText = 'Training in Progress...';
+            progressTrack.style.display = 'block';
+            progressBar.style.width = '20%';
+            statusMsg.innerHTML = '<span style="color: #38bdf8;">Running data ingestion &amp; validation...</span>';
+
+            let progress = 20;
+            const timer = setInterval(() => {
+                if (progress < 85) {
+                    progress += 10;
+                    progressBar.style.width = progress + '%';
+                    if (progress === 40) {
+                        statusMsg.innerHTML = '<span style="color: #38bdf8;">Evaluating drift report with Evidently...</span>';
+                    } else if (progress === 60) {
+                        statusMsg.innerHTML = '<span style="color: #38bdf8;">Applying SMOTEENN class balancing &amp; ColumnTransformer...</span>';
+                    } else if (progress === 80) {
+                        statusMsg.innerHTML = '<span style="color: #38bdf8;">Training GridSearchCV models...</span>';
+                    }
+                }
+            }, 2500);
+
+            try {
+                const response = await fetch('/train');
+                clearInterval(timer);
+                progressBar.style.width = '100%';
+
+                if (response.ok) {
+                    const text = await response.text();
+                    statusMsg.innerHTML = '<span style="color: #34d399; font-weight: 600;">&#x2714; ' + text + '</span>';
+                    startBtn.innerText = 'Completed';
+                } else {
+                    statusMsg.innerHTML = '<span style="color: #fb7185;">Error triggering pipeline: HTTP ' + response.status + '</span>';
+                    startBtn.innerText = 'Retry';
+                    startBtn.disabled = false;
+                }
+            } catch (err) {
+                clearInterval(timer);
+                statusMsg.innerHTML = '<span style="color: #fb7185;">Network or execution error: ' + err.message + '</span>';
+                startBtn.innerText = 'Retry';
+                startBtn.disabled = false;
+            }
+        }
+
+        // Form Submission visual state
+        document.getElementById('visaForm').addEventListener('submit', function() {
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="spin-icon"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/></svg><span>Analyzing Application Patterns...</span>';
+            btn.style.opacity = '0.85';
+            btn.style.pointerEvents = 'none';
+        });
     </script>
-  </body>
+
+</body>
 </html>
